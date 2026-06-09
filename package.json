@@ -1,5 +1,5 @@
 {
-  "name": "test3-dapp",
+  "name": "test3dapp",
   "version": "0.0.0",
   "description": "Electron + Angular + Three.js desktop app",
   "main": "dist-electron/main.js",
