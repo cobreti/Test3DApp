@@ -1,0 +1,47 @@
+{
+  "name": "test3-dapp",
+  "version": "0.0.0",
+  "description": "Electron + Angular + Three.js desktop app",
+  "main": "dist-electron/main.js",
+  "scripts": {
+    "ng": "ng",
+    "start": "ng serve",
+    "build:angular": "ng build --base-href ./",
+    "build:electron": "tsc -p electron/tsconfig.json",
+    "build": "npm run build:angular && npm run build:electron",
+    "watch": "ng build --watch --configuration development",
+    "test": "ng test",
+    "electron": "electron dist-electron/main.js",
+    "electron:dev": "concurrently -k -n ng,electron -c blue,magenta \"ng serve\" \"wait-on http://localhost:4200 && npm run build:electron && cross-env ELECTRON_DEV=1 electron dist-electron/main.js\"",
+    "package": "npm run build && electron-builder"
+  },
+  "private": true,
+  "packageManager": "npm@11.9.0",
+  "dependencies": {
+    "@angular/common": "^22.0.0",
+    "@angular/compiler": "^22.0.0",
+    "@angular/core": "^22.0.0",
+    "@angular/forms": "^22.0.0",
+    "@angular/platform-browser": "^22.0.0",
+    "@angular/router": "^22.0.0",
+    "rxjs": "~7.8.0",
+    "three": "^0.184.0",
+    "tslib": "^2.3.0"
+  },
+  "devDependencies": {
+    "@angular/build": "^22.0.0",
+    "@angular/cli": "^22.0.0",
+    "@angular/compiler-cli": "^22.0.0",
+    "@types/node": "^25.9.2",
+    "@types/three": "^0.184.1",
+    "concurrently": "^10.0.3",
+    "cross-env": "^10.1.0",
+    "electron": "^42.4.0",
+    "electron-builder": "^26.15.2",
+    "jsdom": "^28.0.0",
+    "prettier": "^3.8.1",
+    "typescript": "~6.0.2",
+    "vitest": "^4.0.8",
+    "wait-on": "^9.0.10"
+  }
+}
