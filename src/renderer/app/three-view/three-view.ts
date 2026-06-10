@@ -107,13 +107,21 @@ export class ThreeViewComponent implements AfterViewInit, OnDestroy {
     });
     this.resizeObserver.observe(hostEl);
 
-    const animate = (): void => {
+    const animate = (time: number): void => {
       this.frameHandle = requestAnimationFrame(animate);
+
+      const seconds = time / 1000;
       cube.rotation.x += 0.01;
       cube.rotation.y += 0.012;
+
+      // Glide left/right and up/down using sine waves (amplitude in world units).
+      cube.position.x = Math.sin(seconds) * 1.5;
+      cube.position.y = Math.sin(seconds * 2) * 0.5;
+
       renderer.render(scene, camera);
     };
-    animate();
+
+    animate(0);
   }
 
   private resize(width: number, height: number): void {

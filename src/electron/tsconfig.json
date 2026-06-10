@@ -8,10 +8,13 @@
     "strict": true,
     "skipLibCheck": true,
     "forceConsistentCasingInFileNames": true,
-    "outDir": "../dist-electron",
-    "rootDir": ".",
+    "outDir": "../../dist-electron",
+    "rootDir": "..",
+    "paths": {
+      "@shared/*": ["../shared/*"]
+    },
     "sourceMap": true,
     "types": ["node"]
   },
-  "include": ["**/*.ts"]
+  "include": ["./**/*.ts", "../shared/**/*.ts"]
 }
